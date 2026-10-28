@@ -2,7 +2,7 @@ import { education, experiences, profile, skills, strengths } from "@content/pro
 import { minorProjects, projects } from "@content/projects";
 import { ExperienceList } from "@/components/home/ExperienceList";
 import { Hero } from "@/components/home/Hero";
-import { HomeSection } from "@/components/home/HomeSection";
+import { LabeledSection } from "@/components/ui/LabeledSection";
 import { ProjectCard } from "@/components/home/ProjectCard";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
 
       <main>
-        <HomeSection id="strengths" label="강점">
+        <LabeledSection id="strengths" label="강점">
           <ol className="space-y-6">
             {strengths.map((strength, index) => (
               <li key={strength.title} className="grid grid-cols-[2rem_1fr]">
@@ -25,9 +25,9 @@ export default function Home() {
               </li>
             ))}
           </ol>
-        </HomeSection>
+        </LabeledSection>
 
-        <HomeSection id="projects" label="프로젝트">
+        <LabeledSection id="projects" label="프로젝트">
           <div className="space-y-6">
             {projects.map((project) => (
               <ProjectCard key={project.slug} project={project} />
@@ -44,17 +44,17 @@ export default function Home() {
               </li>
             ))}
           </ul>
-        </HomeSection>
+        </LabeledSection>
 
-        <HomeSection id="experience" label="경력 · 활동">
+        <LabeledSection id="experience" label="경력 · 활동">
           <ExperienceList items={experiences} />
-        </HomeSection>
+        </LabeledSection>
 
-        <HomeSection id="education" label="학력">
+        <LabeledSection id="education" label="학력">
           <ExperienceList items={[education]} />
-        </HomeSection>
+        </LabeledSection>
 
-        <HomeSection id="skills" label="기술 스택">
+        <LabeledSection id="skills" label="기술 스택">
           <dl className="grid grid-cols-[7rem_1fr] gap-x-4 gap-y-2">
             {skills.map((group) => (
               <div key={group.category} className="contents">
@@ -63,7 +63,7 @@ export default function Home() {
               </div>
             ))}
           </dl>
-        </HomeSection>
+        </LabeledSection>
       </main>
 
       <footer className="border-t border-line pt-8 text-sm text-sub">

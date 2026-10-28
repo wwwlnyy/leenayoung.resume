@@ -1,14 +1,21 @@
+import type { StaticImageData } from "next/image";
+
+export interface ProjectImage {
+  readonly src: StaticImageData;
+  readonly alt: string;
+  readonly caption: string;
+}
+
 export interface Attempt {
   readonly approach: string;
   readonly outcome: string;
 }
 
-// 블록 순서: 요구사항 → 작업 → 문제 → 시도 → 해결 → 결과 → 배운 점
+// 블록 순서: 요구사항 → 문제 → 작업 → 기여 → 시도 → 해결 → 결과 → 배운 점
 // 비어 있는 블록은 렌더링하지 않음
 export interface CaseStudy {
   readonly id: string;
   readonly title: string;
-  readonly keywords: readonly string[];
   readonly requirement?: string;
   readonly work?: readonly string[];
   // 팀 작업과 본인 기여를 구분해야 할 때만 사용
@@ -18,6 +25,7 @@ export interface CaseStudy {
   readonly solution?: readonly string[];
   readonly result?: readonly string[];
   readonly learned?: string;
+  readonly images?: readonly ProjectImage[];
   // 아직 확인되지 않은 내용. 렌더링하지 않고 작업 목록으로만 사용
   readonly pending?: readonly string[];
 }
@@ -36,6 +44,7 @@ export interface Project {
   // 출시·개편 등 현재 상태 표기 (예: "개발 참여 · 이후 정식 출시")
   readonly status: string;
   readonly summary: string;
+  // PDF 목차의 핵심 키워드
   readonly keywords: readonly string[];
   readonly stack: readonly string[];
   readonly team: string;

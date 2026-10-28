@@ -1,9 +1,10 @@
+import mailEditor from "../../img/project/scouter/mail-editor.jpg";
 import type { Project } from "../types";
 
 export const scouter: Project = {
   slug: "scouter",
   title: "스카우터 v1",
-  organization: "Yourssu",
+  organization: "Yourssu · 교내 IT 동아리 프로젝트",
   period: "2025.07 – 2026.06",
   role: "프론트엔드 개발",
   status: "v1 개발 참여 · 현재 v2로 개편",
@@ -30,18 +31,23 @@ export const scouter: Project = {
     {
       id: "mail-variables",
       title: "메일 변수 치환 로직 분리",
-      keywords: ["Context API", "관심사 분리"],
       requirement:
         "메일 발송 시 수신인별로 파트명, 지원자명 등의 변수를 치환해야 함",
       work: [
         "변수 치환 로직을 컴포넌트에서 분리",
         "Context API와 전용 인터페이스로 설계",
       ],
+      images: [
+        {
+          src: mailEditor,
+          alt: "스카우터 메일 전송 화면. 가운데 에디터에 지원자별 탭과 변수 칩이 들어간 본문이 있고, 오른쪽 변수 리스트에서 파트 담당자, 면접 장소, 지원자별 면접 날짜를 입력한다",
+          caption: "메일 전송 화면 (v1 개발 당시 PR 첨부 화면)",
+        },
+      ],
     },
     {
       id: "component-split",
       title: "역할 단위 컴포넌트 분리",
-      keywords: ["컴포넌트 설계", "코드 리뷰"],
       // work: ["첫 작업에서 약 80개의 코드 리뷰 코멘트를 받아 팀 컨벤션에 맞게 반영"],
       problem:
         "비슷한 디자인의 Input을 하나로 합쳤다가 props와 분기가 비대해짐",
@@ -53,7 +59,6 @@ export const scouter: Project = {
     {
       id: "server-state",
       title: "서버 상태 무결성",
-      keywords: ["TanStack Query"],
       problem: "클라이언트에서 임의로 데이터를 수정해 서버 원본과 불일치",
       solution: [
         "setQueryData와 invalidateQueries의 차이를 학습해 업데이트 로직 수정",
@@ -62,7 +67,6 @@ export const scouter: Project = {
     {
       id: "batch-delete",
       title: "예약 메일 일괄 삭제 개선",
-      keywords: ["TanStack Query", "useMutation"],
       problem:
         "예약 메일 여러 개를 삭제할 때 삭제 요청마다 목록 쿼리를 무효화해, 삭제 개수만큼 목록을 다시 불러옴",
       solution: [
@@ -73,7 +77,6 @@ export const scouter: Project = {
     {
       id: "data-fetching",
       title: "불필요한 연산 제거와 병렬 페칭",
-      keywords: ["TanStack Query", "네트워크 워터폴"],
       requirement:
         "메일 작성 시 선택한 파트에 맞춰 보내는 사람 · 받는 사람 · 숨은 참조를 자동으로 채워야 함",
       problem:

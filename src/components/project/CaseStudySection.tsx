@@ -1,14 +1,16 @@
 import type { ReactNode } from "react";
 import type { CaseStudy } from "@content/types";
+import { CaseImages } from "./CaseImages";
 
 interface BlockProps {
   label: string;
   children: ReactNode;
 }
 
+// 좁은 화면에서는 라벨 위 / 내용 아래로 쌓고, sm 이상에서 라벨 / 내용 2단
 function Block({ label, children }: BlockProps) {
   return (
-    <div className="grid grid-cols-[6rem_1fr] gap-4 border-t border-line py-4">
+    <div className="grid gap-1 border-t border-line py-4 sm:grid-cols-[6rem_1fr] sm:gap-4">
       <h3 className="text-sm font-medium text-sub">{label}</h3>
       <div>{children}</div>
     </div>
@@ -34,9 +36,8 @@ export function CaseStudySection({ caseStudy }: { caseStudy: CaseStudy }) {
         {caseStudy.title}
       </h2>
 
-      {caseStudy.requirement && (
-        <Block label="요구사항">{caseStudy.requirement}</Block>
-      )}
+      {caseStudy.requirement && <Block label="요구사항">{caseStudy.requirement}</Block>}
+      {caseStudy.problem && <Block label="문제">{caseStudy.problem}</Block>}
       {caseStudy.work && (
         <Block label="작업">
           <BulletList items={caseStudy.work} />
@@ -47,14 +48,12 @@ export function CaseStudySection({ caseStudy }: { caseStudy: CaseStudy }) {
           <BulletList items={caseStudy.myContribution} />
         </Block>
       )}
-      {caseStudy.problem && <Block label="문제">{caseStudy.problem}</Block>}
       {caseStudy.attempts && (
         <Block label="시도">
           <ol className="list-decimal space-y-1 pl-5">
             {caseStudy.attempts.map((attempt) => (
               <li key={attempt.approach}>
-                {attempt.approach} →{" "}
-                <span className="text-sub">{attempt.outcome}</span>
+                {attempt.approach} → <span className="text-sub">{attempt.outcome}</span>
               </li>
             ))}
           </ol>
@@ -71,6 +70,11 @@ export function CaseStudySection({ caseStudy }: { caseStudy: CaseStudy }) {
         </Block>
       )}
       {caseStudy.learned && <Block label="배운 점">{caseStudy.learned}</Block>}
+      {caseStudy.images && (
+        <Block label="화면">
+          <CaseImages images={caseStudy.images} />
+        </Block>
+      )}
     </section>
   );
 }

@@ -1,3 +1,8 @@
+import addressPage from "../../img/project/easyplus/address-page.png";
+import gameChoice from "../../img/project/easyplus/game-choice.png";
+import gameEndingBook from "../../img/project/easyplus/game-ending-book.png";
+import inquiryWrite from "../../img/project/easyplus/inquiry-write.png";
+
 import type { Project } from "../types";
 
 export const easyplus: Project = {
@@ -18,9 +23,17 @@ export const easyplus: Project = {
     "Cafe24 연동 커머스 화면(배송지 · 리뷰 · 1:1 문의) 구현과 네이티브 → 웹뷰 전달 구조",
     "Claude Code 팀 스킬 확장으로 화면 생성 자동화",
   ],
-  links: [],
+  links: [
+    {
+      label: "Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.routefinders.easyplus",
+    },
+    {
+      label: "App Store",
+      href: "https://apps.apple.com/kr/app/%EC%9D%B4%EC%A7%80%ED%94%8C%EB%9F%AC%EC%8A%A4-easyplus/id6746190157",
+    },
+  ],
   pending: [
-    "출시 앱 이름·스토어 링크",
     "대표 화면 스크린샷",
     "루트파인더즈 스크린샷·코드 공개 범위",
   ],
@@ -28,7 +41,6 @@ export const easyplus: Project = {
     {
       id: "game-state",
       title: "분기형 게임 상태 설계",
-      keywords: ["Zustand", "상태 설계"],
       requirement:
         "인터랙티브 게임 콘텐츠에서 노드 이동, 선택지 분기, 엔딩 도달 히스토리를 관리 필요",
       myContribution: [
@@ -38,11 +50,22 @@ export const easyplus: Project = {
         "선택지로 챕터가 바뀌면 히스토리를 초기화하고 이전 챕터의 마지막 노드만 남겨, 새 챕터에서 '이전'을 누르면 선택 직전으로 돌아가게 함",
         "서버 체크포인트로 이어할 때 히스토리가 비어 있으면 챕터의 노드 목록으로 히스토리를 복원",
       ],
+      images: [
+        {
+          src: gameChoice,
+          alt: "사운드노벨 선택지 노드 화면. 본문 아래에 '기다린다', '들어간다' 선택지 버튼과 다시 듣기, 메뉴 버튼이 있다",
+          caption: "선택지 노드",
+        },
+        {
+          src: gameEndingBook,
+          alt: "엔딩북 화면. 수집 엔딩 12%(2/17) 진행 막대와 도달한 엔딩 2개가 목록으로 보인다",
+          caption: "엔딩 도달 기록",
+        },
+      ],
     },
     {
       id: "accessibility",
       title: "스크린리더 포커스 · 음성 충돌 해결",
-      keywords: ["VoiceOver", "TalkBack", "접근성"],
       requirement:
         "스크린리더 사용자가 노드를 이동할 때 안내 음성과 게임 사운드가 겹치지 않고, 포커스가 예측 가능한 위치에 있어야 함",
       work: [
@@ -73,11 +96,17 @@ export const easyplus: Project = {
       learned:
         "기술적으로 완벽한 해결보다 사용자 경험상 덜 나쁜 선택을 판단하는 것도 실무의 일부",
       pending: ["실기기 캡처 또는 VoiceOver 동작 녹화"],
+      // images: [
+      //   {
+      //     src: voiceoverPauseMenu,
+      //     alt: "게임 일시정지 메뉴에서 VoiceOver 포커스가 첫 항목 '자동진행 켜기'에 검은 테두리로 표시된 화면",
+      //     caption: "일시정지 메뉴의 VoiceOver 포커스",
+      //   },
+      // ],
     },
     {
       id: "commerce",
       title: "커머스 기능 개발과 협업",
-      keywords: ["Cafe24 API", "웹뷰", "협업"],
       requirement: "Cafe24 API를 연동해 앱 안에서 커머스 기능 제공",
       work: [
         "구매자 흐름을 따라가다 리뷰 작성 버튼이 상품 상세 페이지에만 있다는 점을 발견. 다른 쇼핑몰 앱 사례를 근거로 준비해 프론트 팀의 공감을 얻은 뒤 PM 회의에서 제안, 기획에 반영됨",
@@ -88,11 +117,22 @@ export const easyplus: Project = {
         "리뷰: 웹뷰 모달을 네이티브 화면으로 전환하고 이미지 첨부 구현. 페이지 로드 시점부터 스크립트를 주입해 수정 · 삭제 동작을 앱에서 실행",
         "1:1 문의: 작성 · 수정 · 삭제를 웹뷰로 구현. 스크립트로 폼을 채우고, 로드 완료 URL 메시지로 성공 여부 감지",
       ],
+      images: [
+        {
+          src: addressPage,
+          alt: "배송지 관리 화면. 배송지 추가 버튼과 '등록된 주소가 없습니다' 안내 문구가 있다",
+          caption: "배송지 관리",
+        },
+        {
+          src: inquiryWrite,
+          alt: "1:1 문의 작성 화면. 제목과 내용 입력란, 하단 등록 버튼이 있다",
+          caption: "1:1 문의 작성",
+        },
+      ],
     },
     {
       id: "productivity",
       title: "AI 스킬로 화면 생성 자동화",
-      keywords: ["Claude Code", "팀 생산성"],
       requirement:
         "6월까지 전 기능 개발, 9월 출시 목표. 커머스 기획·디자인이 5월 초에야 일부 나오고 이후에도 매주 화면이 추가되어, 두 달 남짓 동안 20여 개 화면을 구현해야 함",
       problem:
