@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
-import { profile } from "@content/profile";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL, shareMetadata } from "@/lib/site";
 import "./globals.css";
 
 const notoSansKr = Noto_Sans_KR({
@@ -10,8 +10,10 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: `${profile.name} · ${profile.role}`,
-  description: "React · React Native 프론트엔드 개발자 이나영의 이력서와 포트폴리오",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  ...shareMetadata({ title: SITE_TITLE, description: SITE_DESCRIPTION, path: "/" }),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

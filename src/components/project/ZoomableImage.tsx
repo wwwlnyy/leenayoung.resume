@@ -4,6 +4,11 @@ import Image from "next/image";
 import { useRef } from "react";
 import type { ProjectImage } from "@content/types";
 
+// 확대 보기에서 실제로 그려지는 폭 기준. 세로 캡처는 화면 높이에 맞춰져 폭이 좁고,
+// 가로 캡처는 1024px까지만 받아 레티나 PC에서 4K(w=3840) 요청이 나가지 않게 함
+const ZOOM_SIZES_PORTRAIT = "(min-width: 640px) 480px, 100vw";
+const ZOOM_SIZES_LANDSCAPE = "(min-width: 1024px) 1024px, 100vw";
+
 interface ZoomableImageProps {
   image: ProjectImage;
   sizes: string;
@@ -39,7 +44,7 @@ export function ZoomableImage({ image, sizes }: ZoomableImageProps) {
           <Image
             src={image.src}
             alt={image.alt}
-            sizes="100vw"
+            sizes={image.src.width > image.src.height ? ZOOM_SIZES_LANDSCAPE : ZOOM_SIZES_PORTRAIT}
             className="max-h-[calc(100dvh-8rem)] w-auto max-w-full rounded-lg object-contain"
             onClick={(event) => event.stopPropagation()}
           />

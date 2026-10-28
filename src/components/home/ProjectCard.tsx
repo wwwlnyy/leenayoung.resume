@@ -26,10 +26,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <dl className="mt-5 grid grid-cols-[4.5rem_1fr] gap-x-3 gap-y-1.5 text-sm">
         <dt className="text-sub">역할</dt>
         <dd>{project.role}</dd>
+        {/* 팀 구성·기여도는 데이터에 두고 화면에서만 숨김
         <dt className="text-sub">팀</dt>
         <dd>
           {project.team} · 기여도 {project.contribution}%
         </dd>
+        */}
         <dt className="text-sub">스택</dt>
         <dd>{project.stack.join(", ")}</dd>
       </dl>
