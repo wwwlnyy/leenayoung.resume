@@ -1,10 +1,23 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { profile } from "@content/profile";
 import { findProject, projects } from "@content/projects";
 import { CaseStudySection } from "@/components/project/CaseStudySection";
 import { StickyBackBar } from "@/components/project/StickyBackBar";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
+}
+
+export async function generateMetadata(props: PageProps<"/projects/[slug]">): Promise<Metadata> {
+  const { slug } = await props.params;
+  const project = findProject(slug);
+  if (!project) return {};
+
+  return {
+    title: `${project.title} · ${profile.name}`,
+    description: `${project.summary} · ${project.status}`,
+  };
 }
 
 export default async function ProjectPage(props: PageProps<"/projects/[slug]">) {
