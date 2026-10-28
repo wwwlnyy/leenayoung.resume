@@ -16,3 +16,30 @@ body {
   color: var(--color-ink);
   word-break: keep-all;
 }
+
+@utility link-underline {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-line);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 150ms;
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* 홈과 상세 페이지 공통 컨테이너. 모바일은 화면 폭을 채우고, PC는 가운데 고정 폭 */
+@utility page-container {
+  margin-inline: auto;
+  max-width: var(--container-3xl);
+  padding-inline: --spacing(5);
+
+  @variant sm {
+    padding-inline: --spacing(6);
+  }
+}

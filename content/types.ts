@@ -53,3 +53,20 @@ export interface MinorProject {
   readonly period: string;
   readonly summary: string;
 }
+
+export interface Strength {
+  readonly title: string;
+  readonly body: string;
+}
+
+export interface Experience {
+  readonly title: string;
+  readonly role: string;
+  readonly period: string;
+  readonly description?: string;
+}
+
+export interface SkillGroup {
+  readonly category: string;
+  readonly items: readonly string[];
+}

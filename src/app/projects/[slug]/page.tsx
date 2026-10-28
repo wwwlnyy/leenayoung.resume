@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { findProject, projects } from "@content/projects";
 import { CaseStudySection } from "@/components/project/CaseStudySection";
@@ -12,8 +13,18 @@ export default async function ProjectPage(props: PageProps<"/projects/[slug]">) 
   if (!project) notFound();
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-20">
-      <p className="text-sm text-sub">
+    <main className="page-container pt-8 pb-20">
+      <Link
+        href="/"
+        aria-label="홈으로"
+        className="-ml-2 inline-flex size-10 items-center justify-center rounded-full text-sub transition-colors hover:bg-line/60 hover:text-ink focus-visible:outline-2 focus-visible:outline-accent"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </Link>
+
+      <p className="mt-8 text-sm text-sub">
         {project.organization} · {project.period}
       </p>
       <h1 className="mt-2 text-3xl font-bold">{project.title}</h1>
