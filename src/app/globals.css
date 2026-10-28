@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* 이력서와 같은 색 토큰: bg-ink, text-sub, border-line, text-accent 등으로 사용 */
+@theme {
+  --color-ink: #1a1a1a;
+  --color-sub: #6b6b6b;
+  --color-line: #e2e2e2;
+  --color-accent: #2f5bea;
+  --color-paper: #ffffff;
+
+  --font-sans: var(--font-noto-sans-kr), system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  word-break: keep-all;
+}
