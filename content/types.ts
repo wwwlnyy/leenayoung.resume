@@ -11,6 +11,15 @@ export interface Attempt {
   readonly outcome: string;
 }
 
+// 작업 전후를 한 지표로 비교. 결과 블록에서 목록보다 먼저 보여줌
+export interface Comparison {
+  readonly metric: string;
+  readonly before: string;
+  readonly after: string;
+  readonly beforeDetail: string;
+  readonly afterDetail: string;
+}
+
 // 블록 순서: 요구사항 → 문제 → 작업 → 기여 → 시도 → 해결 → 결과 → 배운 점
 // 비어 있는 블록은 렌더링하지 않음
 export interface CaseStudy {
@@ -23,6 +32,7 @@ export interface CaseStudy {
   readonly problem?: string;
   readonly attempts?: readonly Attempt[];
   readonly solution?: readonly string[];
+  readonly comparison?: Comparison;
   readonly result?: readonly string[];
   readonly learned?: string;
   readonly images?: readonly ProjectImage[];

@@ -33,10 +33,7 @@ export const easyplus: Project = {
       href: "https://apps.apple.com/kr/app/%EC%9D%B4%EC%A7%80%ED%94%8C%EB%9F%AC%EC%8A%A4-easyplus/id6746190157",
     },
   ],
-  pending: [
-    "대표 화면 스크린샷",
-    "루트파인더즈 스크린샷·코드 공개 범위",
-  ],
+  pending: ["대표 화면 스크린샷", "루트파인더즈 스크린샷·코드 공개 범위"],
   cases: [
     {
       id: "game-state",
@@ -134,7 +131,7 @@ export const easyplus: Project = {
       id: "productivity",
       title: "AI 스킬로 화면 생성 자동화",
       requirement:
-        "6월까지 전 기능 개발, 9월 출시 목표. 커머스 기획·디자인이 5월 초에야 일부 나오고 이후에도 매주 화면이 추가되어, 두 달 남짓 동안 20여 개 화면을 구현해야 함",
+        "6월까지 전 기능 개발, 9월 출시 목표. 커머스 기획·디자인이 5월 초에야 일부 나오고 이후에도 매주 화면이 추가되어, 두 달 남짓 동안 20여 개 화면을 구현해야 했음",
       problem:
         "화면을 추가할 때마다 layout·route 파일 수정과 스크린리더용 백 포커스 처리를 모든 화면에 반복",
       work: [
@@ -145,10 +142,15 @@ export const easyplus: Project = {
         "스킬과 훅으로 AI를 프로젝트에 맞게 설정하는 방법을 정리해 팀에 공유",
         "파일 생성만으로는 공통 컴포넌트 조합 작업이 남아서, 스킬이 프로젝트 공통 컴포넌트를 참조하도록 확장해 화면 기본 뼈대까지 생성되게 함",
       ],
-      result: [
-        "화면당 직접 수정하는 파일 3개 이상 → 1~2개",
-        "20여 개 커머스 화면을 6월 기한 안에 구현",
-      ],
+      comparison: {
+        metric: "화면당 직접 수정하는 파일",
+        before: "3개 이상",
+        after: "1~2개",
+        beforeDetail:
+          "화면마다 layout · route 파일 수정과 스크린리더용 백 포커스 처리를 반복",
+        afterDetail: "스킬이 공통 컴포넌트를 참조해 화면 기본 뼈대까지 생성",
+      },
+      result: ["20여 개 커머스 화면을 6월 기한 안에 구현"],
     },
   ],
 };

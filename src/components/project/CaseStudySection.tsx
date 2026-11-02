@@ -64,9 +64,16 @@ export function CaseStudySection({ caseStudy }: { caseStudy: CaseStudy }) {
           <BulletList items={caseStudy.solution} />
         </Block>
       )}
-      {caseStudy.result && (
+      {(caseStudy.comparison || caseStudy.result) && (
         <Block label="결과">
-          <BulletList items={caseStudy.result} />
+          <BulletList
+            items={[
+              ...(caseStudy.comparison
+                ? [`${caseStudy.comparison.metric} ${caseStudy.comparison.before} → ${caseStudy.comparison.after}`]
+                : []),
+              ...(caseStudy.result ?? []),
+            ]}
+          />
         </Block>
       )}
       {caseStudy.learned && <Block label="배운 점">{caseStudy.learned}</Block>}
