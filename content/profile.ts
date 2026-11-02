@@ -82,7 +82,7 @@ export const education: Experience = {
 
 export const skills: readonly SkillGroup[] = [
   { category: "Language", items: ["TypeScript", "JavaScript"] },
-  { category: "Framework", items: ["React", "React Native"] },
+  { category: "Framework", items: ["React", "React Native", "Next.js"] },
   {
     category: "State / Data",
     items: ["TanStack Query", "Zustand", "Context API", "Axios"],
