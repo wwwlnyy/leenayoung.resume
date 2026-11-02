@@ -1,4 +1,4 @@
-import { education, experiences, profile, skills, strengths } from "@content/profile";
+import { education, experiences, otherActivities, profile, skills, strengths } from "@content/profile";
 import { minorProjects, projects } from "@content/projects";
 import { ExperienceList } from "@/components/home/ExperienceList";
 import { Hero } from "@/components/home/Hero";
@@ -63,6 +63,10 @@ export default function Home() {
               </div>
             ))}
           </dl>
+        </LabeledSection>
+
+        <LabeledSection id="other-activities" label="그 외 활동">
+          <ExperienceList items={otherActivities} />
         </LabeledSection>
       </main>
 

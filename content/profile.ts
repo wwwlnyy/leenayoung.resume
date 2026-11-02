@@ -49,6 +49,24 @@ export const experiences: readonly Experience[] = [
   },
 ];
 
+// 개발 외 활동. 진행 중인 활동을 먼저 둠
+export const otherActivities: readonly Experience[] = [
+  {
+    title: "성북구 한책추진단",
+    role: "운영위원 · 주민 주도 지역 독서운동",
+    period: "2024 – 현재",
+    description:
+      "다양한 세대의 주민들과 후보 도서를 읽고 토의하며 '성북구 한 책' 선정에 참여 (2025년 선정 도서: 조승리 『이 지랄맞음이 쌓여 축제가 되겠지』). 2025년부터 운영위원으로 구와 함께 사업 기획에 참여. 청수도서관 아르바이트(2025.06 – 07)",
+  },
+  {
+    title: "아름다운서당 20기",
+    role: "대학생 리더십 교육 과정 · 25주",
+    period: "2025.07 – 2026.02",
+    description:
+      "매주 동서양 인문고전을 읽고 에세이를 쓰며 토론, 그중 3편을 20기 활동집에 수록. 4박 5일 겨울캠프에서 '산업 AX'를 주제로 자동차 산업의 AI 전환을 팀으로 탐구하고 발표",
+  },
+];
+
 export const education: Experience = {
   title: "숭실대학교",
   role: "컴퓨터학부",
