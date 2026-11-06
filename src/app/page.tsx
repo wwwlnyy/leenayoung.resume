@@ -2,6 +2,7 @@ import {
   education,
   experiences,
   otherActivities,
+  otherActivitiesSummary,
   profile,
   skills,
   strengths,
@@ -74,6 +75,7 @@ export default function Home() {
 
         <LabeledSection id="other-activities" label="그 외 활동">
           <ExperienceList items={otherActivities} />
+          <p className="mt-8 leading-relaxed">{otherActivitiesSummary}</p>
         </LabeledSection>
       </main>
 
