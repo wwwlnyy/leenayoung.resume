@@ -1,4 +1,11 @@
-import { education, experiences, otherActivities, profile, skills, strengths } from "@content/profile";
+import {
+  education,
+  experiences,
+  otherActivities,
+  profile,
+  skills,
+  strengths,
+} from "@content/profile";
 import { minorProjects, projects } from "@content/projects";
 import { ExperienceList } from "@/components/home/ExperienceList";
 import { Hero } from "@/components/home/Hero";
@@ -12,19 +19,14 @@ export default function Home() {
 
       <main>
         <LabeledSection id="strengths" label="강점">
-          <ol className="space-y-6">
-            {strengths.map((strength, index) => (
-              <li key={strength.title} className="grid grid-cols-[2rem_1fr]">
-                <span aria-hidden="true" className="font-bold text-accent tabular-nums">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className="font-bold">{strength.title}</h3>
-                  <p className="mt-1 leading-relaxed text-sub">{strength.body}</p>
-                </div>
+          <ul className="space-y-6">
+            {strengths.map((strength) => (
+              <li key={strength.title}>
+                <h3 className="font-bold">{strength.title}</h3>
+                <p className="mt-1 leading-relaxed text-sub">{strength.body}</p>
               </li>
             ))}
-          </ol>
+          </ul>
         </LabeledSection>
 
         <LabeledSection id="projects" label="프로젝트">
@@ -35,12 +37,17 @@ export default function Home() {
           </div>
           <ul className="mt-8 space-y-2">
             {minorProjects.map((project) => (
-              <li key={project.title} className="flex flex-wrap items-baseline justify-between gap-x-4">
+              <li
+                key={project.title}
+                className="flex flex-wrap items-baseline justify-between gap-x-4"
+              >
                 <p>
                   <span className="font-bold">{project.title}</span>
                   <span className="text-sub"> · {project.summary}</span>
                 </p>
-                <p className="text-sm text-sub tabular-nums">{project.period}</p>
+                <p className="text-sm text-sub tabular-nums">
+                  {project.period}
+                </p>
               </li>
             ))}
           </ul>
@@ -75,7 +82,12 @@ export default function Home() {
           {profile.email}
         </a>
         <span aria-hidden="true"> · </span>
-        <a href={profile.github} className="link-underline" target="_blank" rel="noreferrer">
+        <a
+          href={profile.github}
+          className="link-underline"
+          target="_blank"
+          rel="noreferrer"
+        >
           GitHub
         </a>
       </footer>
